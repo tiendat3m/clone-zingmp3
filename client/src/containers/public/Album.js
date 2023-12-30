@@ -1,5 +1,5 @@
 import moment from 'moment'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams, useLocation } from 'react-router-dom'
 import * as apis from '../../apis'
 import { Lists, AudioLoading } from '../../components'
@@ -11,7 +11,7 @@ import icons from '../../utils/icons'
 const { BsFillPlayFill } = icons
 
 const Album = () => {
-
+  const scrollRef = useRef()
   const { pid } = useParams()
   const { isPlaying } = useSelector((state) => state.music);
   const [playlistData, setPlaylistData] = useState({})
@@ -38,9 +38,12 @@ const Album = () => {
       dispatch(actions.play(true))
     }
   }, [pid, playlistData])
+  useEffect(() => {
+    scrollRef.current.scrollIntoView({ block: 'start' })
+  }, [])
   return (
     <>
-      <div className='w-full h-[90px]'></div>
+      <div ref={scrollRef} className='w-full h-[90px]'></div>
       <div className='w-full relative h-full flex gap-7 px-[59px]'>
         <div className="flex-none w-1/4  flex flex-col items-center gap-2">
           <div className='w-full relative overflow-hidden'>

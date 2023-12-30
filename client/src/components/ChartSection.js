@@ -29,7 +29,7 @@ const ChartSection = () => {
         scales: {
             y: {
                 ticks: { display: false },
-                grid: { color: 'rgba(255,255,255,0.1)', drawTicks: false },
+                grid: { color: 'rgba(255,255,255, 0.3)', drawTicks: false },
                 min: chart?.minScore,
                 max: chart?.maxScore,
                 border: { dash: [3, 4] }

@@ -4,10 +4,10 @@ import { getArraySlider } from '../utils/fn'
 import * as actions from '../store/actions'
 import { useNavigate } from 'react-router-dom'
 import { Button } from './'
-import icons  from '../utils/icons'
+import icons from '../utils/icons'
 
 var intervalId
-const { MdArrowForwardIos, MdArrowBackIosNew} = icons
+const { MdArrowForwardIos, MdArrowBackIosNew } = icons
 const Slider = () => {
 
     const { banner } = useSelector(state => state.app)
@@ -33,39 +33,39 @@ const Slider = () => {
     const handleAnimationBanner = (step) => {
         const sliderEls = document.getElementsByClassName('slider-item')
         // console.log(1)
-            const list = getArraySlider(min, max, sliderEls.length - 1)
-            for (let i = 0; i < sliderEls.length; i++) {
-                // Delete classnames (css)
-                sliderEls[i]?.classList?.remove('animate-slide-right', 'order-last', 'z-20')
-                sliderEls[i]?.classList?.remove('animate-slide-left', 'order-first', 'z-10')
-                sliderEls[i]?.classList?.remove('animate-slide-left2', 'order-2', 'z-10')
+        const list = getArraySlider(min, max, sliderEls.length - 1)
+        for (let i = 0; i < sliderEls.length; i++) {
+            // Delete classnames (css)
+            sliderEls[i]?.classList?.remove('animate-slide-right', 'order-last', 'z-20')
+            sliderEls[i]?.classList?.remove('animate-slide-left', 'order-first', 'z-10')
+            sliderEls[i]?.classList?.remove('animate-slide-left2', 'order-2', 'z-10')
 
-                // Hide or Show images
-                if (list.some(item => item === i)) {
-                    sliderEls[i].style.cssText = `display: block`
-                } else {
-                    sliderEls[i].style.cssText = `display: none`
-                }
+            // Hide or Show images
+            if (list.some(item => item === i)) {
+                sliderEls[i].style.cssText = `display: block`
+            } else {
+                sliderEls[i].style.cssText = `display: none`
             }
-            // Add animation by adding classnames
-            list.forEach(item => {
-                if (item === max) {
-                    sliderEls[item]?.classList?.add('animate-slide-right', 'order-last', 'z-20')
-                } else if (item === min) {
-                    sliderEls[item]?.classList?.add('animate-slide-left', 'order-first', 'z-10')
-                } else {
-                    sliderEls[item]?.classList?.add('animate-slide-left2', 'order-2', 'z-10')
-                }
-            })
+        }
+        // Add animation by adding classnames
+        list.forEach(item => {
+            if (item === max) {
+                sliderEls[item]?.classList?.add('animate-slide-right', 'order-last', 'z-20')
+            } else if (item === min) {
+                sliderEls[item]?.classList?.add('animate-slide-left', 'order-first', 'z-10')
+            } else {
+                sliderEls[item]?.classList?.add('animate-slide-left2', 'order-2', 'z-10')
+            }
+        })
 
-            if (step === 1) {
-                setMax(prev => prev === sliderEls.length - 1 ? 0 : prev + step)
-                setMin(prev => prev === sliderEls.length - 1 ? 0 : prev + step)
-            }
-            if (step === -1) {
-                setMax(prev => prev === 0 ? sliderEls.length - 1 : prev + step)
-                setMin(prev => prev === 0 ? sliderEls.length - 1 : prev + step)    
-            }   
+        if (step === 1) {
+            setMax(prev => prev === sliderEls.length - 1 ? 0 : prev + step)
+            setMin(prev => prev === sliderEls.length - 1 ? 0 : prev + step)
+        }
+        if (step === -1) {
+            setMax(prev => prev === 0 ? sliderEls.length - 1 : prev + step)
+            setMin(prev => prev === 0 ? sliderEls.length - 1 : prev + step)
+        }
     }
 
     const handleClickBanner = (item) => {
@@ -76,7 +76,7 @@ const Slider = () => {
         } else if (item?.type === 4) {
             const albumPath = item?.link?.split('.')[0]
             navigate(albumPath)
-        }else {
+        } else {
             dispatch(actions.setPlaylist(null))
         }
     }
@@ -88,20 +88,20 @@ const Slider = () => {
     }, [min, max])
 
     return (
-        <div className='w-full overflow-hidden px-[59px] relative z-0'>
-            <Button 
-                text={<MdArrowBackIosNew size={30}/>}
+        <div className='w-full px-[59px] relative z-0'>
+            <Button
+                text={<MdArrowBackIosNew size={30} />}
                 style='absolute top-1/2 left-[70px] bg-[rgba(0,0,0,.3)] z-50 text-white  p-2 rounded-full'
                 handleOnclick={() => handleBack(1)}
             />
 
-            <Button 
-                text={<MdArrowForwardIos size={30}/>}
+            <Button
+                text={<MdArrowForwardIos size={30} />}
                 style='absolute top-1/2 right-[70px] bg-[rgba(0,0,0,.3)] z-50 text-white  p-2 rounded-full'
                 handleOnclick={() => handleBack(-1)}
-            />    
+            />
 
-            <div 
+            <div
                 onMouseLeave={e => setIsAuto(true)}
                 className='flex w-full gap-8 pt-8'
             >

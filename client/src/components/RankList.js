@@ -25,7 +25,7 @@ const RankList = ({ data, isHideAlbum, number, link }) => {
           isHideAlbum={isHideAlbum}
         />
       ))}
-      <div className='flex items-center justify-center w-full mt-8'>
+      <div className='flex items-center justify-center w-full py-8'>
         <button
           type='button'
           className='px-4 py-2 border border-white rounded-l-full rounded-r-full text-white  hover:bg-overlay-30'

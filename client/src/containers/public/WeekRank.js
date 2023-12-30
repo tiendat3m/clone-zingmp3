@@ -27,7 +27,7 @@ const WeekRank = ({ weekChart }) => {
               </NavLink>
             ))}
           </div>
-          <div className='w-full pb-8'>
+          <div className='w-full h-full'>
             <RankList
               // isHideAlbum={true}
               data={weekChart?.find(item => item?.link?.includes(pid))?.items}

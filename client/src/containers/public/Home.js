@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Slider, Section, NewRelease, ChartSection, Artist } from "../../components";
 import { useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 import Sliders from 'react-slick'
 const Home = () => {
+  const scrollRef = useRef()
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 7,
     slidesToScroll: 7,
-
-
   };
   const { friday, newEveryday, top100, xone, newMusic, weekChart, favoritedArtists, singers, chill, hotAlbum, currentWidth } = useSelector(state => state.app)
-  // console.log(hotAlbum);
-  // console.log(chill)
+  useEffect(() => {
+    scrollRef.current.scrollIntoView({ block: 'start' })
+  }, [])
   return (
-    <div className="overflow-y-auto w-full">
+    <div ref={scrollRef} className="w-full">
       <div className="w-full h-[70px]"></div>
       <Slider />
       {/* <Section data={friday}/> */}

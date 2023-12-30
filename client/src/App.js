@@ -11,7 +11,6 @@ import { apiGetChartHome } from "./apis";
 function App() {
   const dispatch = useDispatch();
   const [weekChart, setWeekChart] = useState(null)
-
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
   // console.log(currentWidth)
   useEffect(() => {

@@ -1,17 +1,16 @@
-import React from "react";
+import React, { memo } from "react";
 import { useState } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, } from "react-router-dom";
 import { Player, SidebarLeft, SidebarRight, Header, Loading } from "../../components";
 import Scrollbars from "react-custom-scrollbars-2";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from '../../store/actions'
 
 const Public = () => {
-  const { singer } = useParams()
+  // const { singer } = useParams()
   const dispatch = useDispatch()
   const [isShowRightSideBar, setIsShowRightSideBar] = useState(false)
   const { isLoading, scrollTop } = useSelector(state => state.app)
-
   const handleScrollTop = (e) => {
     e.target.scrollTop === 0 ? dispatch(actions.zeroScrollTop(true)) : dispatch(actions.zeroScrollTop(false))
   }
@@ -37,7 +36,7 @@ const Public = () => {
               className='relative z-0'
             >
               <Outlet />
-              <div className="h-[150px] w-full"></div>
+              {/* <div className="h-[150px] w-full"></div> */}
             </Scrollbars>
           </div>
         </div>
@@ -54,4 +53,4 @@ const Public = () => {
   );
 };
 
-export default Public;
+export default memo(Public);

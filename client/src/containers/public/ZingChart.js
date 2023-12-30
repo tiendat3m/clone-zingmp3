@@ -11,6 +11,7 @@ import icons from '../../utils/icons'
 const { BsFillPlayFill } = icons
 
 const ZingChart = () => {
+  const scrollRef = useRef()
   const [chartData, setChartData] = useState(null)
   const [data, setData] = useState(null)
   const { chart, rank } = useSelector(state => state.app)
@@ -29,7 +30,7 @@ const ZingChart = () => {
     scales: {
       y: {
         ticks: { display: false },
-        grid: { color: 'rgba(0,0,0,0.1)', drawTicks: false },
+        grid: { color: 'rgba(255,255,255, 0.1)', drawTicks: false },
         min: chartData?.RTChart?.chart?.minScore,
         max: chartData?.RTChart?.chart?.maxScore,
         border: { dash: [3, 4] },
@@ -104,22 +105,24 @@ const ZingChart = () => {
     }
   }, [chartData])
   // console.log(chartData)  
-
+  useEffect(() => {
+    scrollRef.current.scrollIntoView({ block: 'start' })
+  }, [])
 
   return (
-    <div>
-      <div className=''>
+    <>
+      <div ref={scrollRef} className='w-full'>
         <div className='flex flex-col'>
           <div className='relative'>
-            <img src={bgChart} alt="bg-chart" className='w-full object-contain grayscale' />
+            <img src={bgChart} alt="bg-chart" className='w-full max-h-[560px] object-contain grayscale' />
             {/* <div className='h-[500px]'></div> */}
             <div className="top-0 right-0 left-0 bottom-0 absolute bg-[rgba(42,23,54,0.9)]"></div>
             <div className="top-0 right-0 left-0 bottom-0 absolute bg-gradient-to-t from-[#170F23] to-transparent"></div>
-            <div className="top-0 right-0 left-0 bottom-[70%] absolute flex items-center ">
+            <div className="top-0 right-0 left-0 bottom-[50%] absolute flex items-center ">
               <h3 className='text-[40px] font-bold text-purple-600 px-[59px]'>#zingchart</h3>
             </div>
             <div>
-              <div className='flex-7 absolute top-[20%] left-0 right-0 bottom-0 px-[59px]'>
+              <div className='flex-7 absolute top-[40%] left-0 right-0 bottom-0 px-[59px]'>
                 {data && <Line data={data} options={options} ref={chartRef} />}
                 <div
                   className="tooltip"
@@ -144,7 +147,7 @@ const ZingChart = () => {
       </div>
       <div className='relative'>
         <img src={bgChart} alt="bg-chart" className='w-full h-[700px] object-cover grayscale' />
-        <div className="top-0 right-0 left-0 bottom-0 absolute bg-[rgba(32,19,53,0.9)]"></div>
+        <div className="top-0 right-0 left-0 bottom-[-20%] absolute bg-[rgba(32,19,53,0.9)]"></div>
         <div className="top-0 right-0 left-0 bottom-1/2 absolute mt-8 flex flex-col gap-8 px-[59px]">
           <h3 className='text-[40px] font-bold text-main'>Bảng xếp hạng tuần</h3>
           <div className='flex gap-6'>
@@ -166,7 +169,7 @@ const ZingChart = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

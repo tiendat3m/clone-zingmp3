@@ -9,7 +9,7 @@ const Artist = ({ image, title, follower, link }) => {
     return (
         <div className='w-full flex flex-col gap-[15px]'>
             <Link
-                className='relative overflow-hidden rounded-full cursor-pointer'
+                className='relative rounded-full cursor-pointer'
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
                 to={link}
