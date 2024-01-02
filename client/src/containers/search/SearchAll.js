@@ -4,12 +4,11 @@ import { handleNumber } from '../../utils/fn'
 import { SongItem, List, SectionItem, Artist } from '../../components'
 const SearchAll = () => {
   const { searchData } = useSelector(state => state.music)
-  // console.log(searchData)
   return (
     <div className='w-full flex flex-col px-[43px] gap-[43px]'>
       <div className='flex flex-col px-4'>
-        <h3 className='text-lg font-bold mb-5 '>Nổi bật</h3>
-        <div className='flex gap-8'>
+        <h3 className='text-lg font-bold mb-5 text-white'>Nổi bật</h3>
+        <div className='flex gap-8 text-white'>
           {searchData?.top && <div className='flex-1 p-[10px] bg-sidebar rounded-md flex gap-4 items-center cursor-pointer'>
             <img src={searchData?.top.thumbnail} alt="avatar" className={`w-[84px] h[84px] object-cover ${searchData?.top.objectType === 'artist' && 'rounded-full'}`} />
             <div className='flex flex-col'>
@@ -33,7 +32,7 @@ const SearchAll = () => {
         </div>
       </div>
       <div className='flex flex-col px-4'>
-        <h3 className="text-lg font-bold mb-5">Bài hát</h3>
+        <h3 className="text-lg font-bold mb-5 text-white">Bài hát</h3>
         <div className="flex justify-between flex-wrap w-full">
           {searchData?.songs?.filter((i, index) => index < 8)?.map((item, index) => (
             <div className={`flex-auto w-[45%] ${index % 2 !== 0 ? 'pl-4' : 'pr-4'}`} key={item.encodeId}>
@@ -43,7 +42,7 @@ const SearchAll = () => {
         </div>
       </div>
       <div className='flex flex-col w-full '>
-        {<h3 className="text-lg font-bold mb-5 px-4">Playlist/Album</h3>}
+        {<h3 className="text-lg font-bold mb-5 px-4 text-white">Playlist/Album</h3>}
         <div className="flex flex-wrap items-start justify-between">
           {searchData?.playlists?.filter((i, index) => index <= 4)?.map((item) => (
             <SectionItem
@@ -57,8 +56,8 @@ const SearchAll = () => {
         </div>
       </div>
 
-      <div className='flex flex-col w-full'>
-        <h3 className="text-lg font-bold mb-5 px-4">Nghệ sĩ/OA</h3>
+      <div className='flex flex-col w-full text-white'>
+        <h3 className="text-lg font-bold mb-5 px-4 ">Nghệ sĩ/OA</h3>
         <div className="flex gap-[24px]">
           {searchData?.artists?.filter((i, index) => index <= 4)?.map((item) => (
             <Artist

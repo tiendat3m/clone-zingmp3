@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Home, Login, Public, Personal, Album, WeekRank, ZingChart, Search, SearchSongs, SearchAll, Singer, SearchPlaylist } from "./containers/public";
+import { Home, Login, Public, Personal, Album, WeekRank, ZingChart, Search, SearchSongs, SearchAll, Singer, SearchPlaylist } from "./containers";
 import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 import path from "./utils/path";
@@ -49,8 +49,8 @@ function App() {
             <Route path={path.PLAYLIST__TITLE__PID} element={<Album />} />
             <Route path={path.WEEKRANK__TITLE__PID} element={<WeekRank weekChart={weekChart && Object.values(weekChart)} />} />
             <Route path={path.ZING_CHART} element={<ZingChart />} />
-            {/* <Route path={path.HOME__SINGER} element={<Singer />} />\ */}
-            {/* <Route path={path.HOME_ARTIST__SINGER} element={<Singer />}/> */}
+            <Route path={path.HOME__SINGER} element={<Singer />} />\
+            <Route path={path.HOME_ARTIST__SINGER} element={<Singer />} />
             <Route path={path.SEARCH} element={<Search />}>
               <Route path={path.SEARCH_ALL} element={<SearchAll />} />
               <Route path={path.SONG} element={<SearchSongs />} />

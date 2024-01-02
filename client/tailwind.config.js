@@ -18,7 +18,7 @@ module.exports = {
         'main-200': '#DDE4E4',
         'main-400': '#C0D8D8',
         'layout': '#CED9D9',
-        'main': '#0E8080'
+        'main': '#9B4DE0'
       },
       keyframes: {
         'slide-right': {

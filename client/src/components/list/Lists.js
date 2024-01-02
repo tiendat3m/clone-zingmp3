@@ -1,6 +1,6 @@
 import React from 'react'
 import List from './List'
-import icons from '../utils/icons'
+import icons from '../../utils/icons'
 import moment, { duration } from 'moment'
 import { useSelector } from 'react-redux'
 

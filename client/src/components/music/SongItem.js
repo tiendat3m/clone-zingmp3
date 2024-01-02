@@ -3,7 +3,7 @@ import { memo } from 'react'
 import moment from 'moment'
 import 'moment/locale/vi'
 import { useDispatch } from 'react-redux'
-import * as actions from '../store/actions'
+import * as actions from '../../store/actions'
 import { useParams } from 'react-router-dom'
 
 const SongItem = ({ thumbnail, title, artists, sid, releaseDate, order, percent, style, size, duration }) => {

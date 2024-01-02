@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import icons from '../utils/icons'
-import SongItem from './SongItem'
-import { apiGetDetailPlaylist } from '../apis'
+import icons from '../../utils/icons'
+import SongItem from '../music/SongItem'
+import { apiGetDetailPlaylist } from '../../apis'
 import { Scrollbars } from 'react-custom-scrollbars-2'
-import { setRecent } from '../store/actions'
-const { ImBin } = icons
 
 const SidebarRight = () => {
   const [isRecent, setIsRecent] = useState(false)

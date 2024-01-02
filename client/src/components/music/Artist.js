@@ -1,23 +1,20 @@
-import React, { useState, memo } from 'react'
-import { handleNumber } from '../utils/fn'
+import React, { memo } from 'react'
+import { handleNumber } from '../../utils/fn'
 import { Link } from 'react-router-dom'
-import icons from '../utils/icons'
+import icons from '../../utils/icons'
 const { AiOutlineUserAdd } = icons
 
 const Artist = ({ image, title, follower, link }) => {
-    const [isHover, setIsHover] = useState(false)
     return (
-        <div className='w-full flex flex-col gap-[15px]'>
+        <div className='flex flex-col gap-[15px]'>
             <Link
-                className='relative rounded-full cursor-pointer'
-                onMouseEnter={() => setIsHover(true)}
-                onMouseLeave={() => setIsHover(false)}
+                className='rounded-full cursor-pointer'
                 to={link}
             >
-                <img src={image} alt="Singer" className={`w-full object-contain rounded-full ${isHover ? 'animate-scale-up-image' : 'animate-scale-down-image'}`} />
-                {isHover && <div className='absolute top-0 left-0 right-0 bottom-0 rounded-full bg-overlay-30'></div>}
+                <img src={image} alt="Singer" className={`w-full object-contain rounded-full`} />
+                {/* {isHover && <div className='absolute top-0 left-0 right-0 bottom-0 rounded-full bg-overlay-30'></div>} */}
             </Link>
-            <div className='flex items-center flex-col'>
+            <div className='flex items-center flex-col text-white'>
                 <span className='text-sm font-medium hover:underline hover:text-main cursor-pointer'>{title}</span>
                 <span className='text-xs opacity-70'>{`${handleNumber(follower)} quan tâm`}</span>
                 <button

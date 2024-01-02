@@ -1,9 +1,9 @@
 import React from "react";
-import logo from "../assets/logo.svg";
-import { sidebarMenu } from "../utils/menu";
+import logo from "../../assets/logo.svg";
+import { sidebarMenu } from "../../utils/menu";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import path from '../utils/path'
+import path from '../../utils/path'
 const notActiveStyle =
   "py-3 px-[24px] font-semibold text-white text-[13px] flex gap-3 items-center";
 const activeStyle =

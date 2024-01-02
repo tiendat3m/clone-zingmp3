@@ -59,7 +59,7 @@ const Album = () => {
             </div>
           </div>
           <div className='flex flex-col items-center text-white font-semibold'>
-            <h3 className='text-[20px] font-bold '>{playlistData.title}</h3>
+            <h3 className='text-[20px] font-bold text-center'>{playlistData.title}</h3>
             <span className='flex gap-2 items-center text-[12px] '>
               <span>Cập nhật: </span>
               <span>

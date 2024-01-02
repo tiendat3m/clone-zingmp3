@@ -1,12 +1,12 @@
 import React, { memo, useState, useEffect, useRef } from 'react'
-import bgChart from '../assets/bg-chart.jpg'
+import bgChart from '../../assets/bg-chart.jpg'
 import { Line } from 'react-chartjs-2'
 import { useSelector } from 'react-redux'
-import { SongItem } from './'
+import { SongItem } from '..'
 import _ from 'lodash'
 import { Link } from 'react-router-dom'
-import path from '../utils/path'
-import icons from '../utils/icons'
+import path from '../../utils/path'
+import icons from '../../utils/icons'
 
 const { BsFillPlayFill } = icons
 

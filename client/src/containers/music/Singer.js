@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { apiGetArtist } from '../../apis'
-import icons from '../../utils/icons'
 import { SongItem, Section, Artist } from '../../components'
+import icons from '../../utils/icons'
 import Sliders from 'react-slick'
 import bgChart from '../../assets/bg-chart.jpg'
+import award from '../../assets/award.jpg'
 
 const { AiOutlineUserAdd, BsFillPlayFill } = icons
 
@@ -21,7 +22,6 @@ const Singer = () => {
     // console.log(scrollTop);
     const [isHover, setIsHover] = useState(false)
     const { singer } = useParams()
-    console.log(singer)
     const [artistData, setArtistData] = useState()
     const ref = useRef()
     useEffect(() => {
@@ -33,13 +33,13 @@ const Singer = () => {
         }
         singer && fetch()
     }, [singer])
-    // console.log(artistData?.sections);
-    // useEffect(() => {
-    //     ref.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
-    // }, [singer])
+    console.log(artistData)
+    useEffect(() => {
+        ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, [singer])
     return (
-        <div className='flex flex-col w-full'>
-            <div className='relative' ref={ref}>
+        <div ref={ref} className='flex flex-col w-full'>
+            <div className='relative' >
                 <img src={artistData?.cover || bgChart} alt="background" className='h-[410px] object-cover w-full' />
                 <div className='absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-[rgba(0,0,0,.5)] to-transparent px-[59px] text-white'>
                     <div className='absolute bottom-0 pb-6'>
@@ -69,7 +69,7 @@ const Singer = () => {
                     </div>
                 </div>
             </div>
-            <div className='mt-[30px] flex flex-col px-[59px] w-full'>
+            <div className='mt-[30px] flex flex-col px-[59px] w-full text-white'>
                 <h3 className='mb-5 font-bold text-[20px]'>Bài hát nổi bật</h3>
                 <div className='flex flex-wrap w-full'>
                     {artistData?.sections?.find(item => item.sectionType === 'song')?.items?.filter((item, index) => index < 6)?.map(item => (
@@ -96,7 +96,7 @@ const Singer = () => {
                 </div>
             ))}
             <div className='flex flex-col mt-12'>
-                <h3 className="text-[20px] font-bold mb-5 px-[59px]">{artistData?.sections?.find(item => item.sectionType === 'artist')?.title}</h3>
+                <h3 className="text-[20px] font-bold mb-5 px-[59px] text-white">{artistData?.sections?.find(item => item.sectionType === 'artist')?.title}</h3>
                 {artistData && <div className="px-[43px] w-full">
                     <Sliders {...settings}>
                         {artistData.sections?.find(item => item.sectionType === 'artist')?.items?.map(item => (
@@ -115,16 +115,23 @@ const Singer = () => {
                     </Sliders>
                 </div>}
             </div>
-            <div className='px-[59px] mt-12'>
-                <h3 className='text-[20px] font-bold mb-5'>{`Về ${artistData?.name}`}</h3>
+            <div className='px-[59px] mt-12 '>
+                <h3 className='text-[20px] font-bold mb-5 text-white'>{`Về ${artistData?.name}`}</h3>
                 <div className='flex gap-8'>
                     <img src={artistData?.thumbnailM} alt="thumbnail" className='rounded-md object-cover h-[375px] w-[45%] flex none' />
-                    <div className='flex flex-col gap-8 text-sm'>
+                    <div className='flex flex-col gap-8 text-sm text-gray-400'>
                         <p dangerouslySetInnerHTML={{ __html: artistData?.biography }}></p>
 
-                        <div className='flex flex-col'>
-                            <span className='text-[20px] font-bold mb-1'>{`${Number(artistData?.follow.toFixed(1)).toLocaleString()}`}</span>
-                            <div className='text-sm opacity-70 font-semibold'>Người quan tâm</div>
+                        <div className='flex'>
+                            <div className='flex flex-col mr-[52px]'>
+                                <span className='text-[20px] font-bold mb-1'>{`${Number(artistData?.follow.toFixed(1)).toLocaleString()}`}</span>
+                                <span className='text-sm opacity-70 font-semibold'>Người quan tâm</span>
+                            </div>
+                            {artistData?.awards && <div className='flex flex-col mr-6'>
+                                <span className='text-[20px] font-bold mb-1'>{artistData?.awards.length}</span>
+                                <div className='text-sm opacity-70 font-semibold'>Giải thưởng</div>
+                            </div>}
+                            {artistData?.awards && <img src={award} title={artistData?.awards?.toString().split(', ').join('\n')} className='w-[42px] h-[44px] object-contain rounded-md' />}
                         </div>
                     </div>
                 </div>

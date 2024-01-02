@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getArraySlider } from '../utils/fn'
-import * as actions from '../store/actions'
+import { getArraySlider } from '../../utils/fn'
+import * as actions from '../../store/actions'
 import { useNavigate } from 'react-router-dom'
-import { Button } from './'
-import icons from '../utils/icons'
+import { Button } from '..'
+import icons from '../../utils/icons'
 
 var intervalId
 const { MdArrowForwardIos, MdArrowBackIosNew } = icons

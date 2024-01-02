@@ -1,8 +1,8 @@
 import moment from 'moment'
 import React, { memo } from 'react'
-import icons from '../utils/icons'
+import icons from '../../utils/icons'
 import { useDispatch } from 'react-redux'
-import * as actions from '../store/actions'
+import * as actions from '../../store/actions'
 
 const { BsMusicNoteBeamed } = icons
 
@@ -10,7 +10,7 @@ const List = ({ songData, isHideAlbum, isHideNode, order }) => {
     const dispatch = useDispatch()
     return (
         <div
-            className='flex justify-between items-center p-[10px] border-b border-[rgba(0,0,0,0.05)] hover:bg-[hsla(0,0%,100%,0.1)] cursor-pointer'
+            className='flex justify-between items-center p-[10px] border-b border-[rgba(0,0,0,0.05)] hover:bg-[hsla(0,0%,100%,0.1)] cursor-pointer '
             onClick={() => {
                 dispatch(actions.setCurSongId(songData?.encodeId))
                 dispatch(actions.play(true))
@@ -38,11 +38,11 @@ const List = ({ songData, isHideAlbum, isHideNode, order }) => {
                     <span className='text-xs opacity-70 font-semibold text-white'>{songData?.artistsNames}</span>
                 </span>
             </div>
-            <div className='flex-1 flex items-center justify-center text-xs text-white'>
+            <div className={`${!isHideAlbum ? 'flex-1' : ''} flex items-center justify-center text-xs text-white`}>
                 {!isHideAlbum && <div className='flex'>
                     {songData?.album?.title?.length > 30 ? `${songData?.album?.title?.slice(0, 30)}...` : songData?.album?.title}
                 </div>}
-                <div className='flex-1 flex justify-end text-xs opacity-70'>
+                <div className={`${!isHideAlbum ? 'flex-1' : ''} flex justify-end text-xs opacity-70`}>
                     {moment.utc(songData?.duration * 1000).format("mm:ss")}
                 </div>
             </div>

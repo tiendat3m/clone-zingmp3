@@ -3,9 +3,9 @@ import { toast } from "react-toastify";
 import LoadingSong from "./LoadingSong";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import icons from "../utils/icons";
-import * as actions from "../store/actions"
-import * as apis from "../apis";
+import icons from "../../utils/icons";
+import * as actions from "../../store/actions"
+import * as apis from "../../apis";
 // import { setCurSongData } from "../store/actions";
 
 const {

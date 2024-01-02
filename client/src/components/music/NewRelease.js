@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { SongItem } from './'
-import icons from '../utils/icons'
+import { SongItem } from '..'
+import icons from '../../utils/icons'
 
 const { FiChevronRight } = icons
 

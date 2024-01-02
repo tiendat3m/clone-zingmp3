@@ -1,6 +1,6 @@
 import React, { memo, useState, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import icons from '../utils/icons'
+import icons from '../../utils/icons'
 
 const { AiOutlineHeart, BsFillPlayFill, BsThreeDots } = icons
 const SectionItem = ({ link, title, thumbnailM, artistsNames, sortDescription, data }) => {
