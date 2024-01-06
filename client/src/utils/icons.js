@@ -1,13 +1,15 @@
-import { MdLibraryMusic, MdOutlineFeed, MdOutlineMoreHoriz, MdSkipNext, MdSkipPrevious, MdArrowBackIosNew, MdArrowForwardIos, MdOutlineFileDownload } from "react-icons/md";
-import { FaRegDotCircle } from "react-icons/fa";
+import { MdLibraryMusic, MdOutlineFeed, MdOutlineMoreHoriz, MdSkipNext, MdSkipPrevious, MdArrowBackIosNew, MdArrowForwardIos, MdOutlineFileDownload, MdOutlinePrivacyTip } from "react-icons/md";
+import { FaRegDotCircle, FaBrush, FaRegFlag, FaPhoneAlt } from "react-icons/fa";
 import { TbChartArcs, TbRepeatOnce, TbRepeat, TbArrowsShuffle2 } from "react-icons/tb";
 import { HiArrowNarrowLeft, HiArrowNarrowRight, HiOutlineSearch, HiVolumeOff, HiVolumeUp } from "react-icons/hi"
-import { AiOutlineHeart, AiOutlineUserAdd, AiOutlineRight } from "react-icons/ai"
+import { AiOutlineHeart, AiOutlineUserAdd, AiOutlineRight, AiOutlineInfoCircle } from "react-icons/ai"
 import { CiRepeat, CiShuffle, CiSettings } from "react-icons/ci"
 import { BsPlayCircle, BsPauseCircle, BsMusicNoteBeamed, BsDot, BsFillPlayFill, BsMusicNoteList, BsThreeDots } from "react-icons/bs"
 import { ImVolumeHigh, ImBin } from "react-icons/im"
 import { GrClose } from "react-icons/gr"
 import { FiChevronRight } from "react-icons/fi"
+import { RiAdvertisementLine } from "react-icons/ri";
+// import { FaBrush } from "react-icons/fa6";
 const icons = {
   MdLibraryMusic,
   FaRegDotCircle,
@@ -43,7 +45,13 @@ const icons = {
   MdArrowBackIosNew,
   MdArrowForwardIos,
   CiSettings,
-  MdOutlineFileDownload
+  MdOutlineFileDownload,
+  FaBrush,
+  AiOutlineInfoCircle,
+  MdOutlinePrivacyTip,
+  FaRegFlag,
+  RiAdvertisementLine,
+  FaPhoneAlt
 };
 
 export default icons;

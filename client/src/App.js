@@ -13,6 +13,7 @@ function App() {
   const [weekChart, setWeekChart] = useState(null)
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
   // console.log(currentWidth)
+  // console.log(currentWidth)
   useEffect(() => {
     dispatch(actions.getHome());
     const fetchChartData = async () => {

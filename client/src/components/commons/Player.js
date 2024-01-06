@@ -111,8 +111,6 @@ const Player = ({ setIsShowRightSideBar }) => {
     } else {
       audio.play()
       dispatch(actions.play(true))
-
-
     }
   }
 

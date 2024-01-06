@@ -1,6 +1,7 @@
 export { default as SidebarLeft } from "./sidebars/SidebarLeft";
 export { default as SidebarRight } from "./sidebars/SidebarRight";
 export { default as Header } from "./header/Header";
+export { default as MenuBar } from "./menu/MenuBar";
 export { default as Search } from "./search/Search";
 export { default as Slider } from "./commons/Slider";
 export { default as Player } from "./commons/Player";

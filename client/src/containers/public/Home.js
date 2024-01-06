@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef } from "react";
 import { Slider, Section, NewRelease, ChartSection, Artist } from "../../components";
 import { useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
@@ -12,7 +12,8 @@ const Home = () => {
     slidesToShow: 7,
     slidesToScroll: 7,
   };
-  const { friday, newEveryday, top100, xone, newMusic, weekChart, favoritedArtists, singers, chill, hotAlbum, currentWidth } = useSelector(state => state.app)
+  const { friday, radio, top100, xone, newMusic, weekChart, favoritedArtists, singers, chill, hotAlbum, currentWidth } = useSelector(state => state.app)
+  // console.log(radio)
   useEffect(() => {
     scrollRef.current.scrollIntoView({ block: 'start' })
   }, [])
@@ -24,8 +25,8 @@ const Home = () => {
       {/* <Section data={chill}/> */}
 
       <NewRelease />
-      {/* <Section data={favoritedArtists} />
-      <Section data={newEveryday} /> */}
+      <Section data={favoritedArtists} />
+      {/* <Section data={newEveryday} /> */}
       {/* <Section data={xone} /> */}
       <ChartSection />
       <div className="flex items-center px-[43px] w-full mt-12">
@@ -63,4 +64,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default memo(Home);

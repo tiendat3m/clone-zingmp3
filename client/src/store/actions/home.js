@@ -4,7 +4,7 @@ import * as apis from "../../apis"
 export const getHome = () => async (dispatch) => {
     try {
         const response = await apis.getHome()
-        // console.log(response)
+        console.log(response)
         if (response?.data.err === 0) {
             dispatch({
                 type: actionTypes.GET_HOME,

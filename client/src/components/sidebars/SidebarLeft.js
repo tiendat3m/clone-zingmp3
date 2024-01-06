@@ -31,7 +31,7 @@ const SidebarLeft = () => {
             end={item.end}
             className={({ isActive }) => isActive ? activeStyle : notActiveStyle}
           >
-            {item.icons}
+            {item.icon}
             <span className="md:inline hidden">{item.text}</span>
           </NavLink>
         ))}

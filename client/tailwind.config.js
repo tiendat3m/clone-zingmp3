@@ -11,7 +11,8 @@ module.exports = {
         'sidebar': '#231B2E',
         'layout': '#170F23',
         'player': '#170F23',
-        'overlay-30': 'rgba(0,0,0,0.3)'
+        'overlay-30': 'rgba(0,0,0,0.3)',
+        'overlay-90': 'rgba(0,0,0,0.9)',
       },
       colors: {
         'main-100': '#E7ECEC',
