@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useRef } from "react";
-import { Slider, Section, NewRelease, ChartSection, Artist } from "../../components";
+import { Slider, Section, NewRelease, ChartSection, Artist, Footer } from "../../components";
 import { useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 import Sliders from 'react-slick'
@@ -59,7 +59,10 @@ const Home = () => {
       <Section data={top100} />
       <Section data={hotAlbum} />
       {/* <Section data={newMusic} /> */}
-      <div className="w-full h-[500px]"></div>
+      <div className="px-[43px] w-full mt-12">
+        <Footer />
+      </div>
+      <div className="h-[200px]"></div>
     </div>
   );
 };
