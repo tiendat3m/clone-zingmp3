@@ -8,12 +8,12 @@ import * as actions from '../../store/actions'
 
 const Public = () => {
   // const { singer } = useParams()
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const [isShowRightSideBar, setIsShowRightSideBar] = useState(false)
   const { isLoading, scrollTop } = useSelector(state => state.app)
-  const handleScrollTop = (e) => {
-    e.target.scrollTop === 0 ? dispatch(actions.zeroScrollTop(true)) : dispatch(actions.zeroScrollTop(false))
-  }
+  // const handleScrollTop = (e) => {
+  //   e.target.scrollTop === 0 ? dispatch(actions.zeroScrollTop(true)) : dispatch(actions.zeroScrollTop(false))
+  // }
 
   return (
     <div className="w-full relative h-screen flex flex-col bg-layout">
@@ -30,7 +30,7 @@ const Public = () => {
           </div>
           <div className="flex-auto w-full">
             <Scrollbars
-              onScroll={handleScrollTop}
+              // onScroll={handleScrollTop}
               autoHide
               style={{ width: '100%', height: '100%' }}
               className='relative z-0'

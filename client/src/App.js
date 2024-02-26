@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Home, Login, Public, Personal, Album, WeekRank, ZingChart, Search, SearchSongs, SearchAll, Singer, SearchPlaylist } from "./containers";
+import { Home, Login, Public, Personal, Album, WeekRank, ZingChart, Search, SearchSongs, SearchAll, Singer, SearchPlaylist, Top100 } from "./containers";
 import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 import path from "./utils/path";
@@ -27,23 +27,24 @@ function App() {
     setCurrentWidth(e.target.innerWidth)
   }
 
-  useEffect(() => {
-    window.addEventListener('resize', setWidth)
-    return () => {
-      window.removeEventListener('resize', setWidth)
-    }
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener('resize', setWidth)
+  //   return () => {
+  //     window.removeEventListener('resize', setWidth)
+  //   }
+  // }, [])
   useEffect(() => {
     dispatch(actions.setCurrentWidth(currentWidth))
   }, [currentWidth])
 
-  // console.log(currentWidth)
+  console.log(currentWidth)
   return (
     <>
       <div className="">
         <Routes>
           <Route path={path.PUBLIC} element={<Public />}>
             <Route path={path.HOME} element={<Home />} />
+            <Route path={path.TOP100} element={<Top100 />} />
             <Route path={path.LOGIN} element={<Login />} />
             <Route path={path.MY_MUSIC} element={<Personal />} />
             <Route path={path.ALBUM__TITLE__PID} element={<Album />} />

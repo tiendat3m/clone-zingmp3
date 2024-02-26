@@ -18,6 +18,11 @@ const initState = {
     currentWidth: null,
     chill: {},
     hotAlbum: {},
+    outstanding: null,
+    vnMusic: null,
+    asiaMusic: null,
+    usMusic: null,
+    concertMusic: null
 
 }
 
@@ -40,7 +45,15 @@ const appReducer = (state = initState, action) => {
                 singers: action.homeData?.find(item => item.sectionType === 'artistSpotlight')?.items || [],
                 chill: action.homeData?.find(item => item.sectionId === 'hEditorTheme') || {},
                 hotAlbum: action.homeData?.find(item => item.sectionId === 'hAlbum') || {},
-
+            }
+        case actionTypes.GET_TOP100:
+            return {
+                ...state,
+                outstanding: action.top100Data?.find(item => item?.genre?.name === 'Nổi bật') || null,
+                vnMusic: action.top100Data?.find(item => item?.genre?.name === 'Nhạc Việt Nam') || null,
+                asiaMusic: action.top100Data?.find(item => item?.genre?.name === 'Nhạc Châu Á') || null,
+                usMusic: action.top100Data?.find(item => item?.genre?.name === 'Nhạc Âu Mỹ') || null,
+                concertMusic: action.top100Data?.find(item => item?.genre?.name === 'Nhạc Hòa Tấu') || null,
             }
         case actionTypes.LOADING:
             return {

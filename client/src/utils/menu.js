@@ -30,11 +30,11 @@ export const sidebarMenu = [
     text: "#zingchart ",
     icon: <TbChartArcs size={24} />,
   },
-  // {
-  //   path: "follow",
-  //   text: "Theo dõi ",
-  //   icons: <MdOutlineFeed size={24} />,
-  // },
+  {
+    path: "top100",
+    text: "Top 100 ",
+    icon: <MdOutlineFeed size={24} />,
+  },
 ];
 
 export const searchMenu = [

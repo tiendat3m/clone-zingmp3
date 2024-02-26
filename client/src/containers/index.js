@@ -1,6 +1,7 @@
 export { default as Home } from "./public/Home"
 export { default as Login } from "./public/Login"
 export { default as Public } from "./public/Public"
+export { default as Top100 } from "./public/Top100"
 export { default as Personal } from "./public/Personal"
 export { default as Album } from "./music/Album"
 export { default as WeekRank } from "./music/WeekRank"

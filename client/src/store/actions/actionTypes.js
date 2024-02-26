@@ -1,5 +1,6 @@
 const actionTypes = {
     GET_HOME: 'GET_HOME',
+    GET_TOP100: 'GET_top100',
     LOADING: 'LOADING',
     SET_CUR_SONG_DATA: 'SET_CUR_SONG_DATA',
     SET_CUR_ALBUM_ID: 'SET_CUR_ALBUM_ID',
