@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import icons from '../../utils/icons'
 import SongItem from '../music/SongItem'
 import { apiGetDetailPlaylist } from '../../apis'
 import { Scrollbars } from 'react-custom-scrollbars-2'
+
 
 const SidebarRight = () => {
   const [isRecent, setIsRecent] = useState(false)
@@ -42,7 +42,7 @@ const SidebarRight = () => {
             Nghe gần đây
           </span>
         </div>
-        {/* <span className='p-1 rounded-full hover:bg-sidebar cursor-pointer'><ImBin size={14} /></span> */}
+        {/* <span className='p-1 rounded-full hover:opacity-90 cursor-pointer text-white'><ImBin size={14} /></span> */}
       </div>
       {isRecent
         ? <div className='w-full flex-col flex-auto flex px-2'>

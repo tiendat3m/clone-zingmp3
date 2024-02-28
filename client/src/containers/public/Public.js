@@ -11,6 +11,7 @@ const Public = () => {
   const dispatch = useDispatch()
   const [isShowRightSideBar, setIsShowRightSideBar] = useState(false)
   const { isLoading, scrollTop } = useSelector(state => state.app)
+  const { curSongId } = useSelector(state => state.music)
   // console.log(scrollTop)
   const handleScrollTop = (e) => {
     e.target.scrollTop === 0 ? dispatch(actions.zeroScrollTop(true)) : dispatch(actions.zeroScrollTop(false))
@@ -47,9 +48,9 @@ const Public = () => {
           </div>}
         </div>
       </div>
-      <div className="fixed z-50 bottom-0 left-0 right-0 h-[90px]">
+      {curSongId && <div className="fixed z-50 bottom-0 left-0 right-0 h-[90px]">
         <Player setIsShowRightSideBar={setIsShowRightSideBar} />
-      </div>
+      </div>}
     </div>
   );
 };
