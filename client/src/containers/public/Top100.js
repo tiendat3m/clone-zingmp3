@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from "../../store/actions";
-import { Section } from '../../components';
-import top100 from '../../assets/top100.PNG'
+import { Loading, Section } from '../../components';
 
 const Top100 = () => {
     const scrollRef = useRef()
@@ -15,12 +14,16 @@ const Top100 = () => {
     }, []);
 
     return (
-        <div ref={scrollRef} className='py-[100px]'>
-            <Section data={outstanding} isHideAllButton={true} />
-            <Section data={vnMusic} isHideAllButton={true} />
-            <Section data={asiaMusic} isHideAllButton={true} />
-            <Section data={usMusic} isHideAllButton={true} />
-            <Section data={concertMusic} isHideAllButton={true} />
+        <div ref={scrollRef}>
+            {(outstanding && vnMusic && asiaMusic && usMusic && concertMusic) ? <div className='py-[100px] flex flex-col relative flex-auto'>
+                <Section data={outstanding} isHideAllButton={true} />
+                <Section data={vnMusic} isHideAllButton={true} />
+                <Section data={asiaMusic} isHideAllButton={true} />
+                <Section data={usMusic} isHideAllButton={true} />
+                <Section data={concertMusic} isHideAllButton={true} />
+            </div> : <div className='absolute top-0 left-0 z-20 bottom-0 right-0 bg-layout flex items-center justify-center'>
+                <Loading />
+            </div>}
         </div>
     )
 }
