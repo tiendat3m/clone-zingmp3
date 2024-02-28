@@ -1,9 +1,10 @@
 import React, { memo, useState, useRef } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import icons from '../../utils/icons'
 
 const { AiOutlineHeart, BsFillPlayFill, BsThreeDots } = icons
-const SectionItem = ({ link, title, thumbnailM, artistsNames, sortDescription, data }) => {
+const SectionItem = ({ link, title, thumbnailM }) => {
+
     const navigate = useNavigate()
     const [isHover, setIsHover] = useState(false)
     const imageRef = useRef()
@@ -46,8 +47,7 @@ const SectionItem = ({ link, title, thumbnailM, artistsNames, sortDescription, d
                 <img src={thumbnailM} alt="avatar" className='w-full h-auto rounded-lg' ref={imageRef} />
             </div>
             <span className='flex flex-col'>
-                <span className='font-semibold mb-1'>{title?.length > 40 ? title.slice(0, 40) + '...' : title}</span>
-                {data?.sectionId === 'h100' ? <span>{artistsNames}</span> : <span>{sortDescription?.length >= 40 ? `${sortDescription?.slice(0, 40)}...` : sortDescription}</span>}
+                <span className='font-semibold mb-1'>{title?.length > 50 ? title.slice(0, 50) + '...' : title}</span>
             </span>
         </div>
     )

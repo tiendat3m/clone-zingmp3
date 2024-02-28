@@ -12,8 +12,8 @@ const Home = () => {
     slidesToShow: 7,
     slidesToScroll: 7,
   };
-  const { friday, radio, top100, xone, newMusic, weekChart, favoritedArtists, singers, chill, hotAlbum, currentWidth } = useSelector(state => state.app)
-  console.log(top100)
+  const { radio, top100, weekChart, favoritedArtists, singers, chill, hotAlbum } = useSelector(state => state.app)
+  // console.log(radio)
   useEffect(() => {
     scrollRef.current.scrollIntoView({ block: 'start' })
   }, [])
@@ -21,8 +21,7 @@ const Home = () => {
     <div ref={scrollRef} className="w-full">
       <div className="w-full h-[70px]"></div>
       <Slider />
-      {/* <Section data={friday}/> */}
-      {/* <Section data={chill}/> */}
+      {/* <Section data={friday} /> */}
 
       <NewRelease />
       <Section data={favoritedArtists} isHideAllButton />
@@ -57,8 +56,8 @@ const Home = () => {
         </Sliders>
       </div>}
       <Section data={top100} />
+      <Section data={chill} />
       <Section data={hotAlbum} />
-      {/* <Section data={newMusic} /> */}
       <div className="px-[43px] w-full mt-12">
         <Footer />
       </div>

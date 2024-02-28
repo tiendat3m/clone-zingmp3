@@ -28,7 +28,7 @@ export const getHome = () => async (dispatch) => {
 export const getTop100 = () => async (dispatch) => {
     try {
         const response = await apis.getTop100()
-        console.log(response)
+        // console.log(response)
         if (response?.data.err === 0) {
             dispatch({
                 type: actionTypes.GET_TOP100,
