@@ -2,10 +2,8 @@ import actionTypes from "../actions/actionTypes";
 
 const initState = {
     banner: [],
-    friday: {},
     radio: {},
     top100: {},
-    xone: {},
     newMusic: [],
     isLoading: false,
     newRelease: {},
@@ -32,10 +30,8 @@ const appReducer = (state = initState, action) => {
             return {
                 ...state,
                 banner: action.homeData?.find(item => item.sectionId === 'hSlider')?.items || null,
-                friday: action.homeData?.find(item => item.sectionId === 'hAutoTheme1') || {},
                 radio: action.homeData?.find(item => item.sectionId === 'hLiveRadio') || {},
                 top100: action.homeData?.find(item => item.sectionId === 'h100') || {},
-                xone: action.homeData?.find(item => item.sectionId === 'hXone') || {},
                 newMusic: { ...action.homeData?.find(item => item.sectionId === 'hAlbum'), title: 'Nhạc mới' } || {},
                 newRelease: action.homeData?.find(item => item.sectionType === 'new-release') || {},
                 weekChart: action.homeData?.find(item => item.sectionType === 'weekChart')?.items || [],
