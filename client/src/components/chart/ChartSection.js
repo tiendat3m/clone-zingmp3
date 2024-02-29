@@ -53,13 +53,14 @@ const ChartSection = () => {
                     for (let i = 0; i < 3; i++) {
                         counters.push({
                             data: chart?.items[Object.keys(chart?.items)[i]]?.filter(item => +item.hour % 2 === 0)?.map(item => item.counter),
-                            encodeId: Object.keys(chart?.items)[i],
+                            encodeId: Object?.keys(chart?.items)[i],
                         })
                     }
+                    // console.log(counters)
+                    // console.log(tooltip.body[0]?.lines[0].replace(',', ''));
+                    const rs = counters.find(i => i.data.some(n => n === +tooltip?.body[0]?.lines[0].replace('.', '')))
 
-                    // console.log(tooltip.body[0]?.lines[0].replace(',' , ''));
-                    const rs = counters.find(i => i.data.some(n => n === +tooltip?.body[0]?.lines[0].replace(',', '')))
-                    setSelected(rs.encodeId)
+                    setSelected(rs?.encodeId)
                     const newTooltipData = {
                         opacity: 1,
                         left: tooltip.caretX,

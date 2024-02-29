@@ -8,11 +8,12 @@ import { useSelector } from 'react-redux'
 import { SongItem, RankList } from '../../components'
 import icons from '../../utils/icons'
 
-const { BsFillPlayFill } = icons
+// const { BsFillPlayFill } = icons
 
 const ZingChart = () => {
   const scrollRef = useRef()
   const [chartData, setChartData] = useState(null)
+  // console.log(chartData)
   const [data, setData] = useState(null)
   const { chart, rank } = useSelector(state => state.app)
   const chartRef = useRef()
@@ -59,9 +60,8 @@ const ZingChart = () => {
             })
           }
 
-          // console.log(tooltip.body[0]?.lines[0].replace(',' , ''));
-          const rs = counters.find(i => i.data.some(n => n === +tooltip?.body[0]?.lines[0].replace(',', '')))
-          setSelected(rs.encodeId)
+          const rs = counters?.find(i => i.data.some(n => n === +tooltip?.body[0]?.lines[0].replace('.', '')))
+          setSelected(rs?.encodeId)
           const newTooltipData = {
             opacity: 1,
             left: tooltip.caretX,
