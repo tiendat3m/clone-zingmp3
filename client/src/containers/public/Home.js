@@ -15,7 +15,7 @@ const Home = () => {
     slidesToScroll: 7,
   };
   const { radio, top100, weekChart, favoritedArtists, singers, chill, hotAlbum } = useSelector(state => state.app)
-  // console.log(radio)
+  console.log(top100)
   useEffect(() => {
     scrollRef.current.scrollIntoView({ block: 'start' })
   }, [])
