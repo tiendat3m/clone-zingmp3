@@ -25,12 +25,12 @@ function App() {
     setCurrentWidth(e.target.innerWidth)
   }
 
-  // useEffect(() => {
-  //   window.addEventListener('resize', setWidth)
-  //   return () => {
-  //     window.removeEventListener('resize', setWidth)
-  //   }
-  // }, [])
+  useEffect(() => {
+    window.addEventListener('resize', setWidth)
+    return () => {
+      window.removeEventListener('resize', setWidth)
+    }
+  }, [])
   useEffect(() => {
     dispatch(actions.setCurrentWidth(currentWidth))
   }, [currentWidth])
